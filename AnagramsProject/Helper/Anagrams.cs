@@ -7,7 +7,7 @@ namespace AnagramsProject.Helper
 {
     public class Anagrams
     {
-        public static void Get(String[] arr)
+        public static (Dictionary<String, List<String>>, List<String>) Get(String[] arr)
         {
             Dictionary<String, List<String>> map = new Dictionary<String, List<String>>();
 
@@ -38,12 +38,13 @@ namespace AnagramsProject.Helper
                 value.Add(entry.Key);
             }
 
-            PrintAnagrams(map, value);
-            Console.WriteLine("Total of words: " + map.Count);
+            return (map, value);
+            
 
         }
-        public static void PrintAnagrams(Dictionary<String, List<String>> map, List<String> value)
+        public static void PrintAnagrams(String[] arr)
         {
+            (Dictionary<String, List<String>> map, List<String> value) = Get(arr);
             int k = 0;
             string FileLine = string.Empty;
             foreach (KeyValuePair<String,
@@ -75,6 +76,11 @@ namespace AnagramsProject.Helper
                     File.AppendAllLines(@"AnagramResults.txt", lines);
                 }
             }
+            Console.WriteLine("Total of words: " + map.Count);
+
+        }
+        public static void BiggestWord()
+        {
 
         }
     }

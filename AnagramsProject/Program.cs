@@ -36,7 +36,7 @@ namespace AnagramsProject
                             string[] lines = File.ReadLines(FileName).ToArray();
                             Stopwatch stopwatch = new Stopwatch();
                             stopwatch.Start();
-                            Anagrams.Get(lines);
+                            Anagrams.PrintAnagrams(lines);
                             stopwatch.Stop();
                             var time = stopwatch.Elapsed.TotalMilliseconds;
                             Console.WriteLine("Total of time in seconds: " + time);
