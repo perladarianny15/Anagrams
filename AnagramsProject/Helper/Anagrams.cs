@@ -39,6 +39,7 @@ namespace AnagramsProject.Helper
             }
 
             PrintAnagrams(map, value);
+            Console.WriteLine("Total of words: " + map.Count);
 
         }
         public static void PrintAnagrams(Dictionary<String, List<String>> map, List<String> value)
@@ -68,7 +69,10 @@ namespace AnagramsProject.Helper
 
                     //Write Anagrams into a File
                     FileLine = string.Join(",", values);
-                    File.AppendAllLines(@"AnagramResults.txt", values);
+
+                    List<string> lines = new List<string>();
+                    lines.Add(FileLine);
+                    File.AppendAllLines(@"AnagramResults.txt", lines);
                 }
             }
 

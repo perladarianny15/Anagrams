@@ -38,8 +38,8 @@ namespace AnagramsProject
                             stopwatch.Start();
                             Anagrams.Get(lines);
                             stopwatch.Stop();
-                            var time = stopwatch.Elapsed.TotalSeconds;
-                            Console.WriteLine(time);
+                            var time = stopwatch.Elapsed.TotalMilliseconds;
+                            Console.WriteLine("Total of time in seconds: " + time);
                         }
                         else
                         {
