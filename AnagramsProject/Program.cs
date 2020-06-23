@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using AnagramsProject.Helper;
+using System.Diagnostics;
 
 namespace AnagramsProject
 {
@@ -34,7 +35,12 @@ namespace AnagramsProject
                         if (ValidateFile.FileExist(FileName))
                         {
                             string[] lines = File.ReadLines(FileName).ToArray();
+                            Stopwatch stopwatch = new Stopwatch();
+                            stopwatch.Start();
                             Anagrams.Get(lines);
+                            stopwatch.Stop();
+                            var time = stopwatch.Elapsed.TotalSeconds;
+                            Console.WriteLine(time);
                         }
                         else
                         {
