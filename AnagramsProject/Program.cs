@@ -21,9 +21,8 @@ namespace AnagramsProject
 
                 Console.WriteLine("" +
                     "1. GetAllAnagrams \n" +
-                    "2. GetJustAnagramsWithAWord \n" +
-                    "3. GetAnagramsFromDifferentsWords \n" +
-                    "4. Salir..."
+                    "2. BiggestWord \n" +
+                    "3. Salir..."
                     );
                 Console.WriteLine("Select your option: \n");
 
@@ -51,10 +50,8 @@ namespace AnagramsProject
                     case 2:
                         break;
                     case 3:
-                        break;
-                    case 4:
                         Console.WriteLine("Saliendo...");
-                        break;
+                        break; 
                 }
                 Console.WriteLine("------------------------\n");
 
