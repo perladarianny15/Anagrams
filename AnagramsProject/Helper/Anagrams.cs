@@ -42,9 +42,8 @@ namespace AnagramsProject.Helper
             
 
         }
-        public static void PrintAnagrams(String[] arr)
+        public static void PrintAnagrams(Dictionary<String, List<String>> map, List<String> value)
         {
-            (Dictionary<String, List<String>> map, List<String> value) = Get(arr);
             int k = 0;
             string FileLine = string.Empty;
             foreach (KeyValuePair<String,
@@ -79,9 +78,32 @@ namespace AnagramsProject.Helper
             Console.WriteLine("Total of words: " + map.Count);
 
         }
-        public static void BiggestWord()
+        public static void BiggestWord(Dictionary<String, List<String>> map, List<String> value)
         {
+            int count = 0;
+            //int k = 0;
+            string key = "";
+            
+            foreach (var item in map)
+            {
+                //values = map[value[k++]];
+                if (item.Value.Count > count)
+                {
+                    count = item.Value.Count;
+                    key = item.Key;
+                }
+            }
+            List<String> values = map[key];
+            Console.Write("[");
+            int len = 1;
+            foreach (String s in values)
+            {
+                Console.Write(s);
+                if (len++ < values.Count)
+                    Console.Write(", ");
+            }
 
+            Console.Write("]");
         }
     }
 }
