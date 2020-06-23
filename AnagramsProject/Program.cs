@@ -27,32 +27,40 @@ namespace AnagramsProject
                 Console.WriteLine("Select your option: \n");
 
                 opcion = Convert.ToInt32(Console.ReadLine());
-                switch (opcion)
+                if (ValidateFile.FileExist(FileName))
                 {
-                    case 1:
-
-                        if (ValidateFile.FileExist(FileName))
-                        {
-                            string[] lines = File.ReadLines(FileName).ToArray();
-                            Stopwatch stopwatch = new Stopwatch();
+                    string[] lines = File.ReadLines(FileName).ToArray();
+                    Stopwatch stopwatch = new Stopwatch();
+                    stopwatch.Start();
+                    (Dictionary<String, List<String>> map, List<String> values) = Anagrams.Get(lines);
+                    stopwatch.Stop();
+                    var time = stopwatch.Elapsed.TotalSeconds;
+                    var getAnagramsTime = time;
+                    switch (opcion)
+                    {
+                        case 1:
+                            Console.WriteLine("Total of time in seconds: " + getAnagramsTime);
+                            break;
+                        case 2:
                             stopwatch.Start();
-                            Anagrams.PrintAnagrams(lines);
+                            Anagrams.PrintAnagrams(map, values);
                             stopwatch.Stop();
-                            var time = stopwatch.Elapsed.TotalSeconds;
+                            time = stopwatch.Elapsed.TotalSeconds;
                             Console.WriteLine("Total of time in seconds: " + time);
-                        }
-                        else
-                        {
-                            Console.WriteLine("File Not Found...");
-                        }
-
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        Console.WriteLine("Saliendo...");
-                        break; 
+                            break;
+                        case 3:
+                            Anagrams.BiggestWord(map, values);
+                            break;
+                        case 4:
+                            Console.WriteLine("Saliendo...");
+                            break;
+                    }
                 }
+                else
+                {
+                    Console.WriteLine("File Not Found...");
+                }
+                
                 Console.WriteLine("------------------------\n");
 
                 Console.Write("Press 'n' and Enter to close the app, or press any other key and Enter to continue: ");
