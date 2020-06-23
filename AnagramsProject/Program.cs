@@ -21,8 +21,9 @@ namespace AnagramsProject
 
                 Console.WriteLine("" +
                     "1. GetAllAnagrams \n" +
-                    "2. BiggestWord \n" +
-                    "3. Salir..."
+                    "2. PrintAnagrams \n" +
+                    "3. BiggestWord \n" +
+                    "4. Salir..."
                     );
                 Console.WriteLine("Select your option: \n");
 
