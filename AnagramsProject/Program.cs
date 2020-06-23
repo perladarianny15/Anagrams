@@ -38,7 +38,7 @@ namespace AnagramsProject
                             stopwatch.Start();
                             Anagrams.PrintAnagrams(lines);
                             stopwatch.Stop();
-                            var time = stopwatch.Elapsed.TotalMilliseconds;
+                            var time = stopwatch.Elapsed.TotalSeconds;
                             Console.WriteLine("Total of time in seconds: " + time);
                         }
                         else
