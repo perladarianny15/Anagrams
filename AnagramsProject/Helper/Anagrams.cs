@@ -66,7 +66,7 @@ namespace AnagramsProject.Helper
 
                     Console.WriteLine("\n");
 
-
+                    //Write Anagrams into a File
                     FileLine = string.Join(",", values);
                     File.AppendAllLines(@"AnagramResults.txt", values);
                 }
