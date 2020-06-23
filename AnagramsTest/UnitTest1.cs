@@ -10,7 +10,13 @@ namespace AnagramsTest
         }
 
         [Test]
-        public void Test1()
+        public void Read_Empty_File_Throws_Exception()
+        {
+            Assert.Pass();
+        }
+
+        [Test]
+        public void Read_Three_Word_File_Expect_One_Anagram()
         {
             Assert.Pass();
         }
